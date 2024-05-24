@@ -122,6 +122,7 @@ def main():
     logger.info("Setting up LoRA")
     peft_config = LoraConfig(
         r=args.lora_r,
+        # target_modules=["c_attn", "c_proj", "c_fc"],
         target_modules=["q_proj", "k_proj", "v_proj", "o_proj"],
         lora_alpha=args.lora_alpha,
         lora_dropout=args.lora_dropout,
